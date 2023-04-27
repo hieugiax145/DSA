@@ -1,20 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int solve(int n,long long m,long long a[]){
+long long solve(int n,long long k,long long a[]){
 	sort(a,a+n);
-	int sum=0;
+	long long sum=0;
 	for(int i=0;i<n-2;i++){
-		int j=i+1,k=n-1;
-		while(j<k){
-			if(a[i]+a[j]+a[k]>=m){
-				k--;
+		int l=i+1,r=n-1;
+		while(l<r){
+			if(a[i]+a[l]+a[r]>=k){
+				r--;
 			}
 			else{
-				sum+=(k-j);
-				j++;
+				sum+=(r-l);
+				l++;
 			}
-		}			
+		}
 	}
 	return sum;
 }
